@@ -39,10 +39,10 @@ pred_xgb = foreach(i = 1:n, .combine = cbind) %do% {
 
 # try random forest
 pred_rf = foreach(i = 1:n, .combine = cbind) %do% {
-  mdl_rf = ranger(V281 ~ ., data = train, num.trees = 500, mtry = 120, write.forest = T)
+  mdl_rf = ranger(V281 ~ ., data = train, num.trees = 1000, mtry = 120, write.forest = T)
   
   return(predict(mdl_rf, test)$predictions)
 }
 
 # weighted average
-mse(rowMeans(pred_rf) * 0.2 + rowMeans(pred_xgb) * 0.8, test_y)
+mse(rowMeans(pred_rf) * 0.25 + rowMeans(pred_xgb) * 0.75, test_y)
