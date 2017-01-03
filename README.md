@@ -1,12 +1,12 @@
 # BlogFeedback
 
 ## Description
-Predict the number of comments in a blog using available features of blog posts with different machine learning methods.
+Predict the number of comments in a blog using available features with various machine learning methods.
 
 ## Data
 Dataset used here is the *BlogFeedback Data Set* by Krisztian Buza, it can be found on [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/BlogFeedback). There are 60 test files and one training file in the dataset.
 
-In total, there are 281 attributes available for each observation. Our goal is to predict the number of comments in the next 24 hours. Certain variables are removed in prepossessing due to lack of variations.
+In total, 281 attributes are available for each observation. Our goal is to predict the number of comments in the next 24 hours. Certain variables are removed in prepossessing due to lack of variations.
 
 ## Result
 The models are fitted on the log-transformed responses. Model performances are measured by mean squared error. That is, for original response *y* and prediction &fnof;&#770;(*x*), the error is calculated by (1 / *n*)&sum;[ln(1 + *y*)&minus;&fnof;&#770;(*x*)]&sup2;.
@@ -37,7 +37,7 @@ Next we tried averaging result from different models. We trained 5 random forest
 It can be seen that the weighted average model outperforms any of the individual model.
 
 ### Stacked Generalization
-In the end we tried an ensemble algorithm called stacked generalization. We first picked 5 models as our "level-0 learners": *k*NN, LASSO, SVM, RF, and BST. The procedure is then as follows:
+In the end we tried an ensemble algorithm called stacked generalization. We first picked 5 models as our "level-0 learners": *k*-NN, LASSO, SVM, RF, and BST. The procedure is then as follows:
 
 1. Split the dataset in to *k* folds.
 2. For *i*-th fold of data, train models with each of the level-0 learners on the rest of the data.
@@ -54,7 +54,7 @@ The level-1 learner we used in this example is elastic-net regression (&alpha;=0
 
 | Model          | Error         |
 | :------------- |:-------------:|
-| Meta *k*NN     | 0.631110      |
+| Meta *k*-NN    | 0.631110      |
 | Meta LASSO     | 0.624957      |
 | Meta SVM       | 0.443895      |
 | Meta RF        | 0.393018      |
