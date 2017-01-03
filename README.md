@@ -18,6 +18,7 @@ We begin by tuning some basic models on the dataset. Their performance are liste
 | :------------- |:-------------:|
 | *k*-NN         | 0.638315      |
 | LASSO          | 0.635483      |
+| SVM            | 0.445464      |
 | Random Forest  | 0.396741      |
 | Boosting       | 0.382399      |
 
